@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color: white;
+            }
+
+        </style>
+    </head>
+<body>
+    <h1>{{ title }}</h1>
+    <h1>You logged as {{ user }}</h1>
+    <a>{{ user.request }}</a>
+
+
+    <form method='POST' action=''>
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit">
+    </form>
+    {% for instance in order %}
+    {{ instance.Manufacturer }} {{ instance.model }} {{ instance.serial_number }}
+        {{ instance.printed_pages }} {{ instance.date_of_filling }} {{ instance.quality_of_filling }} </br>
+
+    {% endfor %}
+</body>
+</html>
